@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    <strong>This marks the beginning of a new era 🚀</strong>
+    <strong>Gideon Your Mental Health Virtual Assistant </strong>
 </p>
 
 <p align="center">
@@ -16,24 +16,16 @@
 
 ## About Project
 
-In my first year at Northern Caribbean University I volunteer to create the "C.H.I.P.S WebApp" which is a social networking site specifically design for the members of the computer hardware & processing specialist club.
+
 
 ##
 
 ## Features
 
-- [x] Blog Section
-- [x] Club Section
-- [ ] TechTalk Section (Club House like features - Inprogress)
-- [x] Event Section
-- [x] Resources
-- [x] Notification
-- [x] Like & Unlike
-- [x] Follow & Unfollow
-- [x] Bookmark Blog Post
-- [X] Authentication (Google + Email based)
-- [ ] Organizer section
-- [ ] Ecommerce
+- [x] 
+- [x] 
+- [ ] 
+- [x] 
 
 ##
 
@@ -48,7 +40,7 @@ In my first year at Northern Caribbean University I volunteer to create the "C.H
 
 Fontend | Backend | Database
 ------------ | ---|---------
-React JS | Node Js, Socket.io, Express| Mongo DB
+Boostrap/html/css | Node Js, Socket.io, Express| Mongo DB
    
 ##   
 
@@ -56,9 +48,7 @@ React JS | Node Js, Socket.io, Express| Mongo DB
    
 ## What I've Learn
 
-  - ### React
   
-The framework i'm accustomed to is vue JS but been wanting to pick up another frontend framework and what better way to learn a new technology than building a project.
 
 ##
    
