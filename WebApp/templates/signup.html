@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sign up</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	
+	
+		
+		
+	
+<body class="form-v4">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		{% for category, message in messages %}
+		{% if category == 'error' %}
+		<div class="alert alert-warning alert-dismissible" role="alert">
+			{{message}}
+		  <button
+			type="button"
+			class="close"	<div class="page-content">
+				{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			{% if category == 'error' %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				{{message}}
+			  <button
+				type="button"
+				class="close"
+				data-dismiss="alert">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			{% else %}
+		
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				{{message}}
+			  <button
+				type="button"
+				class="close"
+				data-dismiss="alert">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			{% endif %}
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+			
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		{% else %}
+	
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			{{message}}
+		  <button
+			type="button"
+			class="close"
+			data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		{% endif %}
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+	
+	<div class="page-content">
+		<div class="form-v4-content">
+			
+			<form class="form-detail" method="POST" action="/signup" id="myform">
+				<h2>SIGN UP FORM</h2>
+
+				<div class="form-group">
+					<div class="form-row form-row-1">
+						<label for="first_name">First Name</label>
+						<input type="text" name="first_name" id="first_name" class="input-text">
+					</div>
+
+					<div class="form-row form-row-1">
+						<label for="last_name">Last Name</label>
+						<input type="text" name="last_name" id="last_name" class="input-text">
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<label for="mail">Your Email</label>
+					<input type="email" name="email" id="your_email" class="input-text" placeholder="Enter email">
+				</div>
+				<div class="form-group">
+					<div class="form-row form-row-1 ">
+						<label for="password">Password</label>
+						<input type="password" name="password" id="password" class="input-text" placeholder="Enter password">
+					</div>
+					<div class="form-row form-row-1">
+						<label for="confirm-password">Confirm Password</label>
+						<input type="password" name="confirm_password" id="confirm_password" class="input-text" placeholder="Confirm password">
+					</div>
+				</div>
+				<div class="form-checkbox">
+					<label class="container"><p>I agree to the <a href="#" class="text">Terms and Conditions</a></p>
+					  	<input type="checkbox" name="checkbox">
+					  	<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="form-row-last">
+					<input type="submit" name="sign up" class="sign-up" value="sign up">
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+	
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
