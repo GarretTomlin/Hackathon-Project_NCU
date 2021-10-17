@@ -8,7 +8,7 @@ support = Blueprint('support', __name__)
 @support.route("/", methods=['GET'])
 @login_required
 def show_support():
-    pass
+    return render_template("support.html", role=current_user.role)
 
 
 @support.route('/join', methods=['POST'])

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from .models import Therapist, User, Appointment
+from .models import User, Appointment
 from . import db
 
 
@@ -20,12 +20,9 @@ def edit_profile():
     first_name = request.form.get('first_name')
     last_name = request.form.get('last_name')
     email = request.form.get('email')
-    if current_user.role == 0:
-        updated_rows = User.query.filter_by(id=current_user.id).update(
-            dict(first_name=first_name, last_name=last_name, email=email))
-    else:
-        updated_rows = Therapist.query.filter_by(id=current_user.id).update(
-            dict(first_name=first_name, last_name=last_name, email=email))
+
+    updated_rows = User.query.filter_by(id=current_user.id).update(
+        dict(first_name=first_name, last_name=last_name, email=email))
 
     if updated_rows:
         db.session.commit()
@@ -36,11 +33,7 @@ def edit_profile():
 @profile.route("/remove", methods=['DELETE'])
 @login_required
 def remove_profile():
-    if current_user.role == 0:
-        Appointment.query.filter_by(user_id=current_user.id).delete()
-        User.query.filter_by(id=current_user.id).delete()
-    else:
-        Appointment.query.filter_by(therapist_id=current_user.id).delete()
-        Therapist.query.filter_by(id=current_user.id).delete()
+    Appointment.query.filter_by(user_id=current_user.id).delete()
+    User.query.filter_by(id=current_user.id).delete()
     db.session.commit()
     return redirect(url_for('views.home'))

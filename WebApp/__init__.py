@@ -10,7 +10,7 @@ DB_NAME = "database.db"
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = 'jnsjndsnbjlkjeijogd'
+    app.config['SECRET_KEY'] = 'adwdawoooellava'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.jinja_env.globals.update(len=len)
 
@@ -36,11 +36,10 @@ def create_app():
     login_manager.init_app(app)
 
     from .models import User
-    from .models import Therapist
 
     @login_manager.user_loader
     def load_user(id):
-        return Therapist.query.get(int(id)) if User.query.get(int(id)) is None else User.query.get(int(id))
+        return User.query.get(int(id))
 
     return app
 

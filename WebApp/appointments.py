@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from .models import Therapist, User, Appointment
+from .models import User, Appointment
 from . import db
 from datetime import datetime, timedelta
 
@@ -14,7 +14,7 @@ def show_appointments():
         role = "Therapist"
         appointments = Appointment.query.filter_by(
             therapist_id=current_user.id).all()
-        if len(current_user.appointments) == 0:
+        if len(current_user.therapist_appointments) == 0:
             return render_template("appointment.html", appointments=[], role=role)
 
         return render_template("appointment.html", appointments=appointments, role=role)
@@ -23,8 +23,8 @@ def show_appointments():
         role = "Patient"
         appointments = Appointment.query.filter_by(
             user_id=current_user.id).all()
-        therapists = Therapist.query.filter_by(role=1).all()
-        if len(current_user.appointments) == 0:
+        therapists = User.query.filter_by(role=1).all()
+        if len(current_user.patient_appointments) == 0:
             return render_template("appointment.html", therapists=therapists, appointments=[], role=role)
         return render_template("appointment.html", therapists=therapists, appointments=appointments, role=role)
 

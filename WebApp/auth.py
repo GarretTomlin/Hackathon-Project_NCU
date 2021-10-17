@@ -1,9 +1,8 @@
 from flask import Blueprint, redirect, url_for, render_template, request, flash
-from flask.globals import session
-from .models import Therapist, User
+from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
-from flask_login import login_user, login_required, logout_user, current_user, login_manager
+from flask_login import login_user, login_required, logout_user
 
 
 auth = Blueprint('auth', __name__)
@@ -25,22 +24,15 @@ def signup():
             flash('Email already exist', category='error')
 
         elif len(email) < 4:
-            flash('Incorrect Email', category='error')
-        elif len(first_name) < 2:
-            flash('name too short', category='error')
-        elif len(last_name) < 2:
-            flash('name too short', category='error')
+            flash('Invalid Email', category='error')
         elif password != confirm_password:
-            flash('password does not match with confirm password', category='error')
+            flash(
+                'Please ensure Password and Confirm Password are the same.', category='error')
         elif len(password) < 7:
-            flash('password should be longer', category='error')
+            flash('Password should be longer', category='error')
         else:
-            if role == 0:
-                new_user = User(email=email, role=role, first_name=first_name, last_name=last_name,
-                                password=generate_password_hash(password, method='sha256'))
-            else:
-                new_user = Therapist(email=email, role=role, first_name=first_name, last_name=last_name,
-                                     password=generate_password_hash(password, method='sha256'))
+            new_user = User(email=email, role=role, first_name=first_name, last_name=last_name,
+                            password=generate_password_hash(password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             flash('Account Created!', category='success')
@@ -56,24 +48,16 @@ def signin():
         password = request.form.get('password')
 
         user = User.query.filter_by(email=email).first()
-        therapist = Therapist.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
                 flash("Login Successfully", category='success')
                 login_user(user)
                 return redirect(url_for('views.chat'))
-
-        else:
-            print("here runs")
-            print(therapist.first_name)
-            if check_password_hash(therapist.password, password):
-                flash("Login Successfully", category='success')
-                login_user(therapist)
-                return redirect(url_for('views.chat'))
             else:
                 flash('Incorrect Credentials', category='error')
 
-        flash('Incorrect Credentials', category='error')
+        else:
+            flash('Incorrect Credentials', category='error')
     return render_template('signin.html')
 
 
