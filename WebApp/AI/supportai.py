@@ -4,8 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.linear_model import LogisticRegression
 import numpy as np
+import os
 
-form_data = pd.read_csv("testdata.csv")
+current_directory = os.path.dirname(os.path.abspath(__file__))
+form_data = pd.read_csv(os.path.join(current_directory, "testdata.csv"))
 
 
 def run_clustering():
@@ -32,9 +34,9 @@ def train_classifier():
 
 
 def assign_support_group(answers: dict):
-    answers = np.array([answers["one"], answers["two"], answers["three"], answers["four"],
-                       answers["five"], answers["six"], answers["seven"], answers["eight"], answers["nine"]])
+    sample = np.array([int(answers["one"]), int(answers["two"]), int(answers["three"]), int(answers["four"]),
+                       int(answers["five"]), int(answers["six"]), int(answers["seven"]), int(answers["eight"]), int(answers["nine"])])
 
-    group = logistic_regression_model.predict(answers)
+    group = logistic_regression_model.predict([sample])
 
     return group

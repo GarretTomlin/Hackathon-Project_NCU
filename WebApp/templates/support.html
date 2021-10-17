@@ -19,12 +19,171 @@
 
         <div class="form-v4-content">
             
-            {% if role == 0 %}
-                <form class="form-detail" method="POST" action="/support/join" id="myform">
-                    <div class="form-row-last">
-                        <input type="submit" name="edit" class="sign-in" value="Join a Support Group">
+            {% if user.role == 0 %}
+                {% if not user.group %}
+                    <form method="POST" action="/support/join" id="myform">
+                    <div class="mb-1">
+                        <p>1. Sex</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="one" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="one" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">Female</label>
+                        </div>
                     </div>
-                </form>
+                    <div class="mb-1">
+                        <p>2. Age</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="two" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">12-15 years</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="two" id="inlineRadio1" value="2">
+                            <label class="form-check-label" for="inlineRadio1">16-20 years</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="two" id="inlineRadio1" value="3">
+                            <label class="form-check-label" for="inlineRadio1">21-29 years</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="two" id="inlineRadio1" value="4">
+                            <label class="form-check-label" for="inlineRadio1">30 years and over</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>3. Have you ever felt depressed?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="three" id="inlineRadio1" value="2">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="three" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="three" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">Maybe</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>4. If yes which of these symptoms have you experienced the most?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="four" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Fatigue and sleep problems</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="four" id="inlineRadio1" value="5">
+                            <label class="form-check-label" for="inlineRadio1">Uncontrollable emotions</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="four" id="inlineRadio1" value="2">
+                            <label class="form-check-label" for="inlineRadio1">Negative thoughts</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="four" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">Anxiety</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="four" id="inlineRadio1" value="4">
+                            <label class="form-check-label" for="inlineRadio1">Other</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="four" id="inlineRadio1" value="3">
+                            <label class="form-check-label" for="inlineRadio1">Not applicable</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>5. Do you have a stable family life?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="five" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="five" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>6. Is it easy to make or keep friends?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="six" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="six" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>7. Have you ever taken drugs or alcohol?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="seven" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="seven" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">No</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>8. What makes you happy?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="eight" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Playing games</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="eight" id="inlineRadio1" value="3">
+                            <label class="form-check-label" for="inlineRadio1">Talking with friends and family</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="eight" id="inlineRadio1" value="2">
+                            <label class="form-check-label" for="inlineRadio1">Reading</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="eight" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">Other</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <p>9. Have you ever lost interest in a hobby for a period?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="nine" id="inlineRadio1" value="2">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="nine" id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="nine" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Sometimes</label>
+                        </div>
+                    </div>
+                        <div class="form-row-last">
+                            <input type="submit" name="edit" class="btn btn-success" value="Join a Support Group">
+                        </div>
+                    </form>
+                {% else %}
+                <h3>Support Group</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for member in members %}
+                            <tr>
+                                <th>{{member.first_name}} {{member.last_name}}</th>
+                                <th>{{member.email}}</th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
             {% else %}
                 <h3>Not eligible to join a support group.</h3>
             {% endif %}
