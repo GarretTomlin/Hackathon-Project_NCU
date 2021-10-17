@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Sign up</title>
+	<title>Sign Up</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -104,14 +104,15 @@
 						<input type="password" name="confirm_password" id="confirm_password" class="input-text" placeholder="Confirm password">
 					</div>
 				</div>
-				<div class="form-checkbox">
-					<label class="container"><p>I agree to the <a href="#" class="text">Terms and Conditions</a></p>
-					  	<input type="checkbox" name="checkbox">
-					  	<span class="checkmark"></span>
-					</label>
+				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check" name="role" value="0" id="patient" autocomplete="off" checked>
+					<label class="btn btn-outline-primary" for="patient">Patient</label>
+				  
+					<input type="radio" class="btn-check" name="role" value="1" id="therapist" autocomplete="off">
+					<label class="btn btn-outline-primary" for="therapist">Therapist</label>
 				</div>
 				<div class="form-row-last">
-					<input type="submit" name="sign up" class="sign-up" value="sign up">
+					<input type="submit" name="sign up" class="sign-up" value="Sign Up">
 				</div>
 			</form>
 		</div>
