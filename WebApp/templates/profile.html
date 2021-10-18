@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background1.css')}}">
     <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -15,31 +15,52 @@
 
     {%include "includes/navbar.html"%}
     <!--Container Main start-->
-    <div class="page-content">
-
-        <div class="form-v4-content">
-            
-            <form class="form-detail" method="POST" action="/profile/edit" id="myform">
-                <h2>Edit Profile</h2>
-                
-                <div class="form-row">
-                    <label for="firstname">Firstname</label>
-                    <input type="text" name="first_name" id="firstname" class="input-text"  value={{user.first_name}}>
-                </div>
-                <div class="form-row">
-                    <label for="lastname">Lastname</label>
-                    <input type="text" name="last_name" id="lastname" class="input-text"  value={{user.last_name}}>
-                </div>
-                <div class="form-row">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" id="email" class="input-text"  value={{user.email}}>
-                </div>
-                <div class="form-row-last">
-                    <input type="submit" name="edit" class="sign-in" value="Save Changes">
-                </div>
-            </form>
-        </div>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+			<div class="col-md-4 col-sm-3 col-xs-12">
+			</div>
+			<div class="col-md-4 col-sm-3 col-xs-12">
+				<form action="/profile/edit" method="POST" class="form-box">
+					<h2>Edit Profile</h2>
+					{% with messages = get_flashed_messages(with_categories=true) %}
+  						{% if messages %}
+    						{% for category, message in messages %}
+							{% if category == 'success' %}
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								{{message}}
+								<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+							</div>
+							{% else %}
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								{{message}}
+								<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+							</div>
+							{% endif %}
+    						{% endfor %}
+  						{% endif %}
+					{% endwith %}
+                    <div class="form-outline mb-3">
+						<label for="fistname" class="form-label">First Name</label>
+						<input type="text" name="first_name" class="form-control" id="firstname" value={{user.first_name}} aria-describedby="emailHelp">
+						<div id="emailHelp" class="form-text"></div>
+					</div>
+                    <div class="form-outline mb-3">
+						<label for="lastname" class="form-label">Last Name</label>
+						<input type="text" name="last_name" class="form-control" id="lastname" value={{user.last_name}} aria-describedby="emailHelp">
+						<div id="emailHelp" class="form-text"></div>
+					</div>
+					<div class="form-outline mb-3">
+						<label for="email" class="form-label">Email</label>
+						<input type="email" name="email" class="form-control" value={{user.email}} id="email" aria-describedby="emailHelp">
+						<div id="emailHelp" class="form-text"></div>
+					</div>
+					<button type="submit" class="btn btn-primary mb-3" style="width: 100%;">Save Changes</button>
+				</form>
+			</div>
+			<div class="col-md-4 col-sm-3 col-xs-12">
+			</div>
+		</div>
+    </div>    
     <!--Container Main end-->
     <script src="{{ url_for('static', filename='js/chat.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

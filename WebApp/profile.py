@@ -26,8 +26,10 @@ def edit_profile():
 
     if updated_rows:
         db.session.commit()
+        flash("Changes made!", category="success")
         return redirect(url_for('profile.show_profile'))
-    return flash("Please have correct information.", category="warning")
+    flash("Please have correct information.", category="warning")
+    return redirect(url_for('profile.show_profile'))
 
 
 @profile.route("/remove", methods=['DELETE'])

@@ -9,14 +9,15 @@
     
     
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
-    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background1.css')}}">
     <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body id="body-pd">
     {%include "includes/navbar.html"%}
     <!--Container Main start-->
-    <div class="page-content">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 70px;">
         <h2>Appointments</h2>
         <table class="table table-striped">
             <thead>
@@ -33,11 +34,11 @@
                         {% if role == 'Therapist' %}
                             <td>{{appointment.user.first_name}} {{appointment.user.last_name}}</td>
                             <td>{{appointment.user.email}}</td>
-                            <td>{{appointment.time}}</td>
+                            <td>{{appointment.time.strftime("%b %d %Y %H:%M")}}</td>
                         {% else %}
                             <td>{{appointment.therapist.first_name}} {{appointment.therapist.last_name}}</td>
                             <td>{{appointment.therapist.email}}</td>
-                            <td>{{appointment.time}}</td>
+                            <td>{{appointment.time.strftime("%b %d %Y %H:%M")}}</td>
                         {% endif %}
                     </tr>
                     {% endfor %}
@@ -46,6 +47,7 @@
         </table>
 
         {% if role == "Patient" %}
+            <h4>Therapists</h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -58,12 +60,13 @@
                     <tr>
                         <td>{{therapist.first_name}} {{therapist.last_name}}</td>
                         <td>{{therapist.email}}</td>
-                        <td><button class="btn btn-success make_appointment" data-id={{therapist.id}}>Make Appointment</button></td>
+                        <td><button class="btn btn-primary make_appointment" data-id={{therapist.id}}>Make Appointment</button></td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         {% endif %}
+        </div>
     </div>
     <!--Container Main end-->
     <script src="{{ url_for('static', filename='js/chat.js')}}"></script>

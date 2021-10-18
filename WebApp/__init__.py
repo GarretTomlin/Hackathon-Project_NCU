@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from .AI.supportai import train_classifier, run_clustering
+from datetime import datetime
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -15,7 +16,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = 'adwdawoooellava'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    app.jinja_env.globals.update(len=len)
+    app.jinja_env.globals.update(len=len, strftime=datetime.strftime)
 
     db.init_app(app)
 
