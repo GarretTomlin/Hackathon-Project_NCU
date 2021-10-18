@@ -1,0 +1,53 @@
+.desc{
+    max-width: 500px;
+}
+
+.box{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 18px;
+    border-radius: 16px;
+}
+
+.bg-contact{
+    position: absolute;
+}
+
+.bg-feature{
+    position: absolute;
+    bottom: -100px;
+}
+
+.btn-custom-outline{
+    background-color: white !important;
+    border: 1px solid #2b11be;
+    transition: 0.3s;
+    color: #2F281E !important;
+}
+
+.btn-custom-outline:hover {
+    background-color:#003cff !important;
+    color: #fff !important;
+    border: 1px solid #003cff;
+}
+
+.btn-custom{
+    background-color: #003cff !important;
+    transition: 0.3s;
+    color: #fff !important;
+}
+
+.btn-custom:hover {
+    background-color: #003cff !important;
+    color: #fff !important;
+}
+
+.link{
+    color:#003cff ;
+    transition: 0.3s;
+}
+
+.link:hover{
+    color:#003cff ;
+}

@@ -1,0 +1,93 @@
+*{
+font-family: 'Poppins', sans-serif;
+color: #2F281E;
+}
+
+body {
+   max-width: 100%;
+   overflow-x: hidden;
+}
+
+.color-theme{
+    color: #003cff !important;
+}
+
+.bg-purple{
+    background-color: #2308bb !important;
+    box-shadow: 3px 8px 12px #0c26b98c;
+}
+
+.bg-yellow{
+    background-color: #0509fa !important;
+    box-shadow: 3px 8px 12px #2412c48c;
+}
+
+.bg-red{
+    background-color: #2b17dd !important;
+    box-shadow: 3px 8px 12px #1215ca8c;
+}
+
+.bg-blue{
+    background-color: #3729f7 !important;
+    box-shadow: 3px 8px 12px #110ec9b2;
+}
+
+.width-1n8x{
+    width: 180px;
+}
+
+.width-2x{
+    width: 200px;
+}
+
+.width-3x{
+    width: 300px;
+}
+
+.width-4x{
+    width: 400px;
+}
+
+.width-5x{
+    width: 500px;
+}
+
+.max-width-1x{
+    max-width: 200px;
+}
+
+.max-width-2x{
+    max-width: 300px;
+}
+
+.max-width-3x{
+    max-width: 400px;
+}
+
+.max-width-4x{
+    max-width: 500px;
+}
+
+.max-width-5x{
+    max-width: 600px;
+}
+
+.bold-1{
+    font-weight: 500;
+}
+
+.bold-2{
+    font-weight: 600;
+}
+
+.bold-3{
+    font-weight: 700;
+}
+
+.bold-4{
+    font-weight: 800;
+}
+
+.bold-5{
+    font-weight: 900;
+}

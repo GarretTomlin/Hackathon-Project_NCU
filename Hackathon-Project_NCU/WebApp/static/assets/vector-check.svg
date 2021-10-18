@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="35.729"
+   height="35.729"
+   viewBox="0 0 35.729 35.729"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="vector-check.svg"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="14.889865"
+     inkscape:cx="14.204292"
+     inkscape:cy="17.8645"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Rectangle" />
+  <g
+     id="icon"
+     transform="translate(0.365 0.365)">
+    <g
+       id="Rectangle">
+      <g
+         id="Rectangle-2"
+         data-name="Rectangle"
+         fill="#f90"
+         stroke="#fff"
+         stroke-miterlimit="10"
+         stroke-width="2.917">
+        <rect
+           width="35"
+           height="35"
+           rx="13.854"
+           stroke="none"
+           id="rect2"
+           x="0"
+           y="0"
+           style="fill:#0000ff" />
+        <rect
+           x="1.458"
+           y="1.458"
+           width="32.083"
+           height="32.083"
+           rx="12.396"
+           fill="none"
+           id="rect4" />
+      </g>
+    </g>
+    <g
+       id="tick"
+       transform="translate(10 12)">
+      <path
+         id="Path"
+         d="M15.766.239a.788.788,0,0,0-1.131,0L5.05,10.028,1.366,6.265a.788.788,0,0,0-1.131,0,.829.829,0,0,0,0,1.155l4.25,4.34a.788.788,0,0,0,1.131,0L15.766,1.395A.829.829,0,0,0,15.766.239Z"
+         fill="#fff" />
+    </g>
+  </g>
+</svg>
