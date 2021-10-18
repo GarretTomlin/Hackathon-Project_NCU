@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background1.css')}}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body id="body-pd">
+    {%include "includes/navbar.html"%}
+    <!--Container Main start-->
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 70px;">
+        <h2>Appointments</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">{{'Therapist' if role == 'Patient' else 'Patient'}}</th>
+                    <th>{{'Therapist' if role == 'Patient' else 'Patient'}} Email</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if len(appointments) != 0 %}
+                    {% for appointment in appointments %}
+                    <tr>
+                        {% if role == 'Therapist' %}
+                            <td>{{appointment.user.first_name}} {{appointment.user.last_name}}</td>
+                            <td>{{appointment.user.email}}</td>
+                            <td>{{appointment.time.strftime("%b %d %Y %H:%M")}}</td>
+                        {% else %}
+                            <td>{{appointment.therapist.first_name}} {{appointment.therapist.last_name}}</td>
+                            <td>{{appointment.therapist.email}}</td>
+                            <td>{{appointment.time.strftime("%b %d %Y %H:%M")}}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+
+        {% if role == "Patient" %}
+            <h4>Therapists</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Therapist</th>
+                    <th>Email Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for therapist in therapists %}
+                    <tr>
+                        <td>{{therapist.first_name}} {{therapist.last_name}}</td>
+                        <td>{{therapist.email}}</td>
+                        <td><button class="btn btn-primary make_appointment" data-id={{therapist.id}}>Make Appointment</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        </div>
+    </div>
+    <!--Container Main end-->
+    <script src="{{ url_for('static', filename='js/chat.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/appointment.js')}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
